@@ -1,0 +1,26 @@
+<resources xmlns:android="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="buttonNav">
+        <item name="android:layout_marginTop">-10dp</item>
+        <item name="android:layout_weight">0.33</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="foreground">
+        <item name="android:background">@drawable/ground</item>
+    </style>
+    <style name="parent">
+        <item name="android:background">@color/background_floating_material_dark</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+    <style name="ProgressBarBrowser">
+        <item name="android:color">@color/colorProgressBar</item>
+    </style>
+</resources>
