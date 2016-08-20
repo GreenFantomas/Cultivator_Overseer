@@ -86,20 +86,11 @@ public class RecordActivity extends AppCompatActivity implements View.OnClickLis
             intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://google.com"));
             startActivity(intent);
         }else{
-            Toast.makeText(this, String.valueOf(time), Toast.LENGTH_LONG).show();
             date = new Date();
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             db = sdb.getWritableDatabase();
-            insertInTable(db, "useTime", String.valueOf(time), format.format(date));
+            sdb.insertInTable(db, "useTime", String.valueOf(time), format.format(date));
         }
     }
 
-    public void insertInTable(SQLiteDatabase db, String tableName, String time, String data){
-        ContentValues cv = new ContentValues();
-
-        cv.put("time", time);
-        cv.put("date", data);
-
-        db.insert(tableName, null, cv);
-    }
 }
