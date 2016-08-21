@@ -6,23 +6,42 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.io.IOException;
+
 /**
  * Created by Egor on 15.08.16.
  */
 public class SDB extends SQLiteOpenHelper {
 
-    public SDB(Context context){
-        super(context, "OverseerDB", null, 1);
+    public SDB(Context context, int db_version){super(context, "OverseerDB", null, db_version);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table useTime(time TEXT, date DATE);");
-        //db.execSQL("create table allTime(ID, time TEXT, date DATE);");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+        if(oldVersion == 1 && newVersion == 2){
+            ContentValues cv = new ContentValues();
+
+            cv.put("time", "0");
+            cv.put("date", "1970-01-01");
+
+            try {
+                db.beginTransaction();
+
+                db.execSQL("create table allTime(time TEXT, date DATE);");
+
+                db.insert("allTime", null, cv);
+
+                db.setTransactionSuccessful();
+            }finally {
+                db.endTransaction();
+            }
+        }
 
     }
 
@@ -52,6 +71,13 @@ public class SDB extends SQLiteOpenHelper {
         cv.put("date", data);
 
         long result = db.insert(tableName, null, cv);
+
+        return result;
+    }
+
+    public int deleteTable(SQLiteDatabase db, String tableName){
+
+        int result = db.delete(tableName, null, null);
 
         return result;
     }

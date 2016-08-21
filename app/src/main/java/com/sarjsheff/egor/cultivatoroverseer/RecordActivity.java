@@ -1,23 +1,18 @@
 package com.sarjsheff.egor.cultivatoroverseer;
 
-import android.content.ContentValues;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
-import android.os.SystemClock;
-import android.provider.ContactsContract;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.SystemClock;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.*;
+import android.widget.Chronometer;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
-import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import static android.R.attr.data;
 
 public class RecordActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -69,7 +64,7 @@ public class RecordActivity extends AppCompatActivity implements View.OnClickLis
             }
         });
 
-        sdb = new SDB(this);
+        sdb = new SDB(this, 2);
     }
 
     @Override
@@ -90,6 +85,9 @@ public class RecordActivity extends AppCompatActivity implements View.OnClickLis
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             db = sdb.getWritableDatabase();
             sdb.insertInTable(db, "useTime", String.valueOf(time), format.format(date));
+            String[] lastTime = sdb.getLastRowTable(db, "allTime");
+            long resultTime = Long.parseLong(lastTime[0])+time;
+            sdb.insertInTable(db, "allTime",  String.valueOf(resultTime), format.format(date));
         }
     }
 
