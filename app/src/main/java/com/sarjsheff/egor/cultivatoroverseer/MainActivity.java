@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     TextView text;
 
+    SD sd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,10 +45,15 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
         db = sdb.getWritableDatabase();
 
+        sd = new SD();
+
         text.setText(getLastRowTable(db, "allTime")[0]);
+        //if(sd.getFormat() == "h"){
+            //long r = Long.parseLong(getLastRowTable(db, "allTime")[0]);
+          //  text.setText(String.valueOf(r/60));
+        //}
     }
 
-    //TODO delete String[] result
     public void onClick(View v){
 
         if(v.getId() == R.id.button_record){
@@ -56,7 +63,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             intent = new Intent(this, AddTimeActivity.class);
             startActivity(intent);
         }else{
-
+            intent = new Intent(this, SitingsActivity.class);
+            startActivity(intent);
         }
     }
 
