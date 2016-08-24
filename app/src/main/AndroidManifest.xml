@@ -19,12 +19,18 @@
         </activity>
         <activity android:name=".RecordActivity">
         </activity>
-        <activity android:name=".BrowserActivity" android:label="Cultivator Browser">
+        <activity
+                android:name=".BrowserActivity"
+                android:label="Cultivator Browser">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"></action>
-                <data android:scheme="@string/http"></data>
-                <category android:name="android.intent.category.DEFAULT"></category>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <data android:scheme="@string/http"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".AddTimeActivity">
         </activity>
     </application>
 

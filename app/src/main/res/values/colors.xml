@@ -7,4 +7,5 @@
     <color name="help">#3366BB</color>
     <color name="colorProgressBar">#006d40</color>
     <color name="colorProgressBarBackground">#353535</color>
+    <color name="colorAddTimeView">#ffffff</color>
 </resources>

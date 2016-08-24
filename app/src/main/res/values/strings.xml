@@ -10,4 +10,5 @@
     <string name="title_activity_settings">Settings</string>
     <string name="http">http</string>
     <string name="reload">Обновить</string>
+    <string name="addTimeTitle">Добавление Времяни</string>
 </resources>
