@@ -11,4 +11,7 @@
     <string name="http">http</string>
     <string name="reload">Обновить</string>
     <string name="addTimeTitle">Добавление Времяни</string>
+    <string name="sitngsTitle">Настройки</string>
+    <string name="radioHours">Часы</string>
+    <string name="radioMinutes">Минуты</string>
 </resources>

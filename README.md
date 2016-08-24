@@ -10,6 +10,7 @@ RecordActivity.java| Activity для записи времени использ�
 BrowserActivity.java| Встроенный браузер
 SDB.java          | Класс для работы с базой данных
 AddTimeActivity.java| Добавление времени использования мотора
+com.sarjsheff.egor.cultivatoroverseer.SD.java           | Класс для хранения данных о настройках
 ## Обратная связь
 Сайт: [egor.sarjsheff.ru](http://egor.sarjsheff.ru) (в разработке)<p>
 Email: egor.sheff@gmail.com
