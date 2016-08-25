@@ -1,8 +1,9 @@
 package com.sarjsheff.egor.cultivatoroverseer;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
+import android.preference.PreferenceManager;
 
 /**
  * Created by Egor on 24.08.16.
@@ -11,34 +12,19 @@ public class SD extends Activity{
 
     private SharedPreferences pref;
 
-    private boolean help = false;
-    private String format = "h";
+    public SD(Context context){
+        pref = PreferenceManager.getDefaultSharedPreferences(context);
+    }
 
     public boolean getHelp(){
-        pref = getPreferences(MODE_PRIVATE);
         return pref.getBoolean("help", false);
     }
 
+    public String getName(){
+        return pref.getString("name", "Юзер");
+    }
+
     public String getFormat(){
-        pref = getPreferences(MODE_PRIVATE);
-        return pref.getString("format", "h");
-    }
-
-    public void setHelp(boolean help){
-        this.help = help;
-
-        pref = getPreferences(MODE_PRIVATE);
-        Editor ed = pref.edit();
-        ed.putBoolean("help", help);
-        ed.commit();
-    }
-
-    public void setFormat(String format){
-        this.format = format;
-
-        pref = getPreferences(MODE_PRIVATE);
-        Editor ed = pref.edit();
-        ed.putString("format", format);
-        ed.commit();
+        return pref.getString("format", "Минуты");
     }
 }

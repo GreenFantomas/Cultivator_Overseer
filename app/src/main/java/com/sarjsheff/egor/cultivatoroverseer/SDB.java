@@ -6,14 +6,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import java.io.IOException;
-
 /**
  * Created by Egor on 15.08.16.
  */
 public class SDB extends SQLiteOpenHelper {
 
-    public SDB(Context context, int db_version){super(context, "OverseerDB", null, db_version);
+    public SDB(Context context, int db_version){
+        super(context, "OverseerDB", null, db_version);
     }
 
     @Override
@@ -52,8 +51,15 @@ public class SDB extends SQLiteOpenHelper {
         int timeIndex;
         int dateIndex;
 
-        Cursor c = db.query(tableName,null,null,null,null,null,null);
+        Cursor c;
 
+        try {
+            db.beginTransaction();
+            c = db.query(tableName, null, null, null, null, null, null);
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
         timeIndex = c.getColumnIndex("time");
         dateIndex = c.getColumnIndex("date");
 

@@ -3,15 +3,11 @@
     <string name="record_time">Записать Время</string>
     <string name="add_time">Добавить Время</string>
     <string name="sitings">Настройки</string>
-    <string name="help_title">Что это?</string>
     <string name="help_record_text">Эта страница предназначена для записи время работы Вашего двигателя
         для дальнейшего расчёта времени обслуживания Вашего мотоблока(культиватора).
     </string>
-    <string name="title_activity_settings">Settings</string>
     <string name="http">http</string>
     <string name="reload">Обновить</string>
     <string name="addTimeTitle">Добавление Времяни</string>
-    <string name="sitngsTitle">Настройки</string>
-    <string name="radioHours">Часы</string>
-    <string name="radioMinutes">Минуты</string>
+    <string name="sitings_title">Настройки</string>
 </resources>

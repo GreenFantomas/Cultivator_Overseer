@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="name_title">Ваше имя</string>
+    <string name="name_summary">Просто для преветствия :)</string>
+    <string name="name_dialog_title">Введите Ваше имя</string>
+
+    <string name="help_title">Подсказаки</string>
+    <string name="help_summary">Показывать небольшие подсказки на каждом экране</string>
+
+    <string name="format_title">Формат времени</string>
+    <string name="format_summary">Устанавливает формат сохраняемого и отображаемого времени</string>
+    <string name="format_dialog_title">Выберите формат времени</string>
+</resources>

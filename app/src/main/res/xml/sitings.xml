@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+             android:layout_height="match_parent">
+    <EditTextPreference
+        android:defaultValue=""
+        android:key="name"
+        android:title="@string/name_title"
+        android:summary="@string/name_summary"
+        android:dialogTitle="@string/name_dialog_title"/>
+
+    <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="help"
+            android:summary="@string/help_summary"
+            android:title="@string/help_title"/>
+
+    <ListPreference
+        android:key="format"
+        android:title="@string/format_title"
+        android:summary="@string/format_summary"
+        android:entries="@array/formats_entry"
+        android:entryValues="@array/formats_entry"
+        android:defaultValue="0"
+        android:dialogTitle="@string/format_dialog_title"/>
+</PreferenceScreen>

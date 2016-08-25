@@ -45,13 +45,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
         db = sdb.getWritableDatabase();
 
-        sd = new SD();
+        sd = new SD(this);
 
-        text.setText(getLastRowTable(db, "allTime")[0]);
-        //if(sd.getFormat() == "h"){
-            //long r = Long.parseLong(getLastRowTable(db, "allTime")[0]);
-          //  text.setText(String.valueOf(r/60));
-        //}
+        text.setText(sd.getName());
     }
 
     public void onClick(View v){
