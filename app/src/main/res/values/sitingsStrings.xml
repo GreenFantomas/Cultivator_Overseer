@@ -10,4 +10,7 @@
     <string name="format_title">Формат времени</string>
     <string name="format_summary">Устанавливает формат сохраняемого и отображаемого времени</string>
     <string name="format_dialog_title">Выберите формат времени</string>
+
+    <string name="tractor_title">Выбрать модель</string>
+    <string name="tractor_summary">Устанавливает модель Вашего культиватора</string>
 </resources>

@@ -84,8 +84,14 @@ public class RecordActivity extends AppCompatActivity implements View.OnClickLis
             date = new Date();
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             db = sdb.getWritableDatabase();
-            sdb.insertInTable(db, "useTime", String.valueOf(time), format.format(date));
-            String[] lastTime = sdb.getLastRowTable(db, "allTime");
+            
+
+ContentValues cv = new ContentValues();
+          cv.put("time", String.valueOf(time));
+          cv.put("date", format.format(date));
+
+          sdb.insertInTable(db, "useTime", cv;
+            String[] lastTime = sdb.getLastRowTable(db, "allTime");
             long resultTime = Long.parseLong(lastTime[0])+time;
             sdb.insertInTable(db, "allTime",  String.valueOf(resultTime), format.format(date));
         }

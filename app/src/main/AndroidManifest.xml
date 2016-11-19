@@ -32,7 +32,9 @@
         </activity>
         <activity android:name=".AddTimeActivity">
         </activity>
-        <activity android:name=".SitingsActivity" android:label="@string/sitings_title">
+        <activity
+                android:name=".sitings.SitingsActivity"
+                android:label="@string/sitings_title">
         </activity>
     </application>
 

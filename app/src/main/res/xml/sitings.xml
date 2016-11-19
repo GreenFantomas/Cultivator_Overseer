@@ -22,4 +22,8 @@
         android:entryValues="@array/formats_entry"
         android:defaultValue="0"
         android:dialogTitle="@string/format_dialog_title"/>
+    <Preference
+        android:key="tractor"
+        android:title="@string/tractor_title"
+        android:summary="@string/tractor_summary"/>
 </PreferenceScreen>

@@ -70,11 +70,14 @@ public class SDB extends SQLiteOpenHelper {
         return result;
     }
 
-    public long insertInTable(SQLiteDatabase db, String tableName, String time, String data){
-        ContentValues cv = new ContentValues();
+    public long insertInTable(SQLiteDatabase db, String tableName,ContentValues cv){
+        
+      //For test
+      
+      /*ContentValues cv = new ContentValues();
 
         cv.put("time", time);
-        cv.put("date", data);
+        cv.put("date", data);*/
 
         long result = db.insert(tableName, null, cv);
 

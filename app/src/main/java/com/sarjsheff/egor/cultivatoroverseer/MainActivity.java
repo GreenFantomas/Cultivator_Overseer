@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.TextView;
+import com.sarjsheff.egor.cultivatoroverseer.sitings.SitingsActivity;
 
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
@@ -22,8 +22,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     Button add;
     Button sitings;
 
-    TextView text;
-
     SD sd;
 
     @Override
@@ -35,8 +33,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         add = (Button) findViewById(R.id.button_add);
         sitings = (Button) findViewById(R.id.button_sitings);
 
-        text = (TextView) findViewById(R.id.textView);
-
         record.setOnClickListener(this);
         add.setOnClickListener(this);
         sitings.setOnClickListener(this);
@@ -46,8 +42,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         db = sdb.getWritableDatabase();
 
         sd = new SD(this);
-
-        text.setText(sd.getName());
     }
 
     public void onClick(View v){
