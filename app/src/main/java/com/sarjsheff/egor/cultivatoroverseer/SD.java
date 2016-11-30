@@ -7,7 +7,10 @@ import android.preference.PreferenceManager;
 
 /**
  * Created by Egor on 24.08.16.
+ * Preferences class
  */
+
+//TODO need to work
 public class SD extends Activity{
 
     private SharedPreferences pref;

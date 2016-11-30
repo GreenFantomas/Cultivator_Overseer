@@ -10,6 +10,12 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import com.sarjsheff.egor.cultivatoroverseer.sitings.SitingsActivity;
 
+/*
+*Created by Egor
+* Main Activity
+*/
+
+//TODO NEED TO TEST!!!!
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     SQLiteDatabase db;
@@ -37,40 +43,57 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         add.setOnClickListener(this);
         sitings.setOnClickListener(this);
 
-        sdb = new SDB(this, 2);
+        try{
+      	//connect to DB class
+      	sdb = new SDB(this, 2);
 
-        db = sdb.getWritableDatabase();
+        //get DB in write mode(?)
+      	db = sdb.getWritableDatabase();
 
         sd = new SD(this);
+        }catch(Exception e){
+        	Log.e(TAG, "Error to connect to DB: " + e.getMessage());
+        }
+        
     }
 
     public void onClick(View v){
 
         if(v.getId() == R.id.button_record){
-            intent = new Intent(this, RecordActivity.class);
+            //start torecord time
+          	intent = new Intent(this, RecordActivity.class);
             startActivity(intent);
         }else if(v.getId() == R.id.button_add){
-            intent = new Intent(this, AddTimeActivity.class);
+            //go to AddTimeActivity
+          	intent = new Intent(this, AddTimeActivity.class);
             startActivity(intent);
         }else{
-            intent = new Intent(this, SitingsActivity.class);
+            //go to sitings
+          	intent = new Intent(this, SitingsActivity.class);
             startActivity(intent);
         }
     }
 
-    public String[] getLastRowTable(SQLiteDatabase db, String tableName){
+/*
+* Method to read last row in db
+*/
+  
+  	public String[] getLastRowTable(SQLiteDatabase db, String tableName){
 
-        String[] result = new String[2];
+      	String[] result = new String[2];
 
         int timeIndex;
         int dateIndex;
 
-        Cursor c = db.query(tableName,null,null,null,null,null,null);
+        //get cursor from DB
+      	Cursor c = db.query(tableName,null,null,null,null,null,null);
 
-        timeIndex = c.getColumnIndex("time");
+        //get data
+      	timeIndex = c.getColumnIndex("time");
         dateIndex = c.getColumnIndex("date");
 
-        c.moveToLast();
+        //got to end
+      	c.moveToLast();
         result[0] = c.getString(timeIndex);
         result[1] = c.getString(dateIndex);
 

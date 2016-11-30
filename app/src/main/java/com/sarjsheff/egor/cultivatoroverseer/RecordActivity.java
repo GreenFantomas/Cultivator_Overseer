@@ -14,6 +14,11 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/*
+ * Created by Egor
+ * Activity to record time of motor
+*/
+
 public class RecordActivity extends AppCompatActivity implements View.OnClickListener{
 
     Intent intent;
@@ -78,7 +83,7 @@ public class RecordActivity extends AppCompatActivity implements View.OnClickLis
             start.setEnabled(true);
             chronometer.stop();
         }else if(v.getId() == R.id.recordHelp){
-            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://google.com"));
+            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://egor.sarjsheff.ru"));
             startActivity(intent);
         }else{
             date = new Date();
@@ -90,10 +95,10 @@ ContentValues cv = new ContentValues();
           cv.put("time", String.valueOf(time));
           cv.put("date", format.format(date));
 
-          sdb.insertInTable(db, "useTime", cv;
-            String[] lastTime = sdb.getLastRowTable(db, "allTime");
+          sdb.insertInTable(db, "useTime", cv);
+            /*String[] lastTime = sdb.getLastRowTable(db, "allTime");
             long resultTime = Long.parseLong(lastTime[0])+time;
-            sdb.insertInTable(db, "allTime",  String.valueOf(resultTime), format.format(date));
+            sdb.insertInTable(db, "allTime",  String.valueOf(resultTime), format.format(date));*/
         }
     }
 
